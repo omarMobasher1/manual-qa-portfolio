@@ -2,6 +2,12 @@
 
 This repository is an entry-level manual software testing portfolio built around a small e-commerce demonstration application. It shows how requirements are analyzed, tests are designed and executed, defects are reported, and results are summarized.
 
+## Live application
+
+**[Open the ShopEasy application](https://omarmobasher1.github.io/manual-qa-portfolio/app/)**
+
+Demo credentials: `tester@example.com` / `Password1!`
+
 ## Project scope
 
 The tested features are:
