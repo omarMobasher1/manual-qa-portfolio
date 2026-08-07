@@ -36,13 +36,13 @@ The portfolio demonstrates:
 
 | File | Purpose |
 |---|---|
-| `app/index.html` | Self-contained system under test |
-| `docs/test-plan.md` | Scope, approach, risks, entry/exit criteria |
-| `docs/test-cases.csv` | Designed tests and recorded results |
-| `docs/defect-reports.md` | Reproducible defect reports |
-| `docs/traceability-matrix.csv` | Requirements mapped to test cases |
-| `docs/test-summary-report.md` | Execution results and release recommendation |
-| `evidence/` | Screenshots captured while reproducing each reported defect |
+| [Live ShopEasy application](https://omarmobasher1.github.io/manual-qa-portfolio/app/) | Self-contained system under test |
+| [Test plan](https://github.com/omarMobasher1/manual-qa-portfolio/blob/main/docs/test-plan.md) | Scope, approach, risks, entry/exit criteria |
+| [Test cases](https://github.com/omarMobasher1/manual-qa-portfolio/blob/main/docs/test-cases.csv) | Designed tests and recorded results |
+| [Defect reports](https://github.com/omarMobasher1/manual-qa-portfolio/blob/main/docs/defect-reports.md) | Reproducible defect reports with screenshots |
+| [Traceability matrix](https://github.com/omarMobasher1/manual-qa-portfolio/blob/main/docs/traceability-matrix.csv) | Requirements mapped to test cases |
+| [Test summary report](https://github.com/omarMobasher1/manual-qa-portfolio/blob/main/docs/test-summary-report.md) | Execution results and release recommendation |
+| [Execution evidence](https://github.com/omarMobasher1/manual-qa-portfolio/tree/main/evidence) | Screenshots captured while reproducing each reported defect |
 
 ## How to reproduce the testing
 
