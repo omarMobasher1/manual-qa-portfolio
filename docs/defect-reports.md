@@ -25,6 +25,10 @@ The user is logged in and the product catalog is visible.
 
 No product is displayed.
 
+### Evidence
+
+![Lowercase search returns no products](../evidence/DEF-001-case-sensitive-search.png)
+
 ---
 
 ## DEF-002 — Cart accepts quantities above the maximum of five
@@ -53,6 +57,10 @@ The quantity is rejected or reset to the maximum value of 5.
 
 Quantity 6 is accepted and used in the subtotal.
 
+### Evidence
+
+![Quantity six is accepted](../evidence/DEF-002-quantity-above-maximum.png)
+
 ---
 
 ## DEF-003 — SAVE10 is rejected at the exact $50 eligibility boundary
@@ -79,6 +87,10 @@ A $5.00 discount is applied because the eligible subtotal is at least $50.
 ### Actual result
 
 The application reports that the order is ineligible and applies no discount.
+
+### Evidence
+
+![SAVE10 rejected at the fifty-dollar boundary](../evidence/DEF-003-promotion-boundary.png)
 
 ---
 
@@ -109,3 +121,6 @@ Submission is blocked and an email-format validation message is displayed.
 
 The application accepts the order and displays confirmation.
 
+### Evidence
+
+![Malformed email accepted during checkout](../evidence/DEF-004-invalid-email-accepted.png)

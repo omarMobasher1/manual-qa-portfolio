@@ -1,5 +1,9 @@
 # Test Summary Report — ShopEasy Demo Store
 
+- **Executed by:** Omar Mobasher
+- **Execution date:** August 7, 2026
+- **Environment:** Google Chrome on Windows 11
+
 ## Summary
 
 Manual functional testing was completed against the defined login, catalog, cart, promotion, and checkout requirements. All 22 planned test cases were executed.
@@ -37,4 +41,3 @@ The open high-severity defects affect quantity limits, promotional pricing at a 
 ## Release recommendation
 
 **Not recommended for release in its current state.** Resolve DEF-002, DEF-003, and DEF-004, then perform confirmation and focused regression testing. DEF-001 may be scheduled according to product priority but should remain visible as a usability risk.
-

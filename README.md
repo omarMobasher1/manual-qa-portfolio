@@ -42,6 +42,7 @@ The portfolio demonstrates:
 | `docs/defect-reports.md` | Reproducible defect reports |
 | `docs/traceability-matrix.csv` | Requirements mapped to test cases |
 | `docs/test-summary-report.md` | Execution results and release recommendation |
+| `evidence/` | Screenshots captured while reproducing each reported defect |
 
 ## How to reproduce the testing
 
