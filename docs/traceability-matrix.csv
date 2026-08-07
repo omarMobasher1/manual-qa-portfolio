@@ -1,0 +1,12 @@
+Requirement ID,Requirement Summary,Test Case IDs,Coverage,Result
+REQ-01,Valid login,TC-001,Covered,Pass
+REQ-02,Invalid and empty login rejected,TC-002; TC-003,Covered,Pass
+REQ-03,Case-insensitive product search,TC-004; TC-005; TC-006,Covered,Fail
+REQ-04,Category filtering,TC-007; TC-008,Covered,Pass
+REQ-05,Add product to cart,TC-009,Covered,Pass
+REQ-06,Quantity range 1 through 5,TC-010; TC-011; TC-012; TC-013,Covered,Fail
+REQ-07,Accurate subtotal,TC-014,Covered,Pass
+REQ-08,SAVE10 promotional rules,TC-015; TC-016; TC-017; TC-018,Covered,Fail
+REQ-09,Checkout-field validation,TC-019; TC-020,Covered,Fail
+REQ-10,Valid checkout and empty-cart prevention,TC-021; TC-022,Covered,Pass
+

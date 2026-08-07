@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ShopEasy QA Demo</title>
+  <style>
+    :root{font-family:Arial,sans-serif;color:#172033;background:#f4f6fa}body{margin:0}header{background:#243b67;color:white;padding:18px 6%;display:flex;justify-content:space-between}main{max-width:1000px;margin:32px auto;padding:0 20px}.panel{background:white;border-radius:10px;padding:22px;margin-bottom:18px;box-shadow:0 2px 10px #0001}input,select,button{padding:10px;margin:5px;border:1px solid #b8c0d0;border-radius:6px}button{background:#2457c5;color:white;cursor:pointer}.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.product{border:1px solid #dbe0ea;padding:15px;border-radius:8px}.error{color:#b00020}.success{color:#08752c}.hidden{display:none}.cart-row{display:flex;gap:12px;align-items:center;justify-content:space-between;border-bottom:1px solid #eee;padding:9px 0}
+  </style>
+</head>
+<body>
+<header><strong>ShopEasy</strong><span>Manual QA portfolio demo</span></header>
+<main>
+  <section id="login" class="panel">
+    <h1>Login</h1><p>Demo: tester@example.com / Password1!</p>
+    <input id="email" placeholder="Email"><input id="password" type="password" placeholder="Password"><button onclick="login()">Log in</button>
+    <p id="loginMessage" class="error"></p>
+  </section>
+  <section id="store" class="hidden">
+    <div class="panel"><h1>Products</h1><input id="search" placeholder="Search products" oninput="renderProducts()"><select id="category" onchange="renderProducts()"><option>All</option><option>Electronics</option><option>Office</option></select><div id="products" class="products"></div></div>
+    <div class="panel"><h2>Cart</h2><div id="cart"></div><p>Subtotal: $<span id="subtotal">0.00</span></p><input id="promo" placeholder="Promo code"><button onclick="applyPromo()">Apply</button><p id="promoMessage"></p><p>Discount: $<span id="discount">0.00</span> — Total: $<span id="total">0.00</span></p></div>
+    <div class="panel"><h2>Checkout</h2><input id="fullName" placeholder="Full name"><input id="checkoutEmail" placeholder="Email"><input id="address" placeholder="Address"><button onclick="checkout()">Place order</button><p id="checkoutMessage"></p></div>
+  </section>
+</main>
+<script>
+const products=[{id:1,name:'Wireless Mouse',price:25,category:'Electronics'},{id:2,name:'USB Hub',price:25,category:'Electronics'},{id:3,name:'Notebook',price:8,category:'Office'},{id:4,name:'Desk Lamp',price:49,category:'Office'}];let cart={};let discount=0;
+function login(){if(email.value==='tester@example.com'&&password.value==='Password1!'){document.querySelector('#login').classList.add('hidden');store.classList.remove('hidden');renderProducts();}else loginMessage.textContent='Invalid email or password.'}
+function renderProducts(){let q=search.value;let cat=category.value;let list=products.filter(p=>p.name.includes(q)&&(cat==='All'||p.category===cat));document.querySelector('#products').innerHTML=list.length?list.map(p=>`<article class="product"><h3>${p.name}</h3><p>${p.category}</p><strong>$${p.price.toFixed(2)}</strong><br><button onclick="add(${p.id})">Add to cart</button></article>`).join(''):'<p>No products found.</p>'}
+function add(id){cart[id]=cart[id]||1;renderCart()}
+function quantity(id,value){let n=parseInt(value)||1;if(n<1)n=1;cart[id]=n;renderCart()}
+function subtotalValue(){return Object.entries(cart).reduce((s,[id,q])=>s+products.find(p=>p.id==id).price*q,0)}
+function renderCart(){document.querySelector('#cart').innerHTML=Object.keys(cart).length?Object.entries(cart).map(([id,q])=>{let p=products.find(x=>x.id==id);return `<div class="cart-row"><span>${p.name}</span><label>Qty <input type="number" min="1" value="${q}" onchange="quantity(${id},this.value)" style="width:55px"></label></div>`}).join(''):'<p>Cart is empty.</p>';let sub=subtotalValue();subtotal.textContent=sub.toFixed(2);discount=0;document.querySelector('#discount').textContent='0.00';total.textContent=sub.toFixed(2)}
+function applyPromo(){let sub=subtotalValue();if(promo.value==='SAVE10'&&sub>50){discount=sub*.1;promoMessage.textContent='SAVE10 applied.';promoMessage.className='success'}else if(promo.value==='SAVE10'){discount=0;promoMessage.textContent='Subtotal is not eligible for SAVE10.';promoMessage.className='error'}else{discount=0;promoMessage.textContent='Invalid promotional code.';promoMessage.className='error'}document.querySelector('#discount').textContent=discount.toFixed(2);total.textContent=(sub-discount).toFixed(2)}
+function checkout(){if(!Object.keys(cart).length){checkoutMessage.textContent='Cannot checkout: cart is empty.';checkoutMessage.className='error';return}if(!fullName.value.trim()||!checkoutEmail.value.includes('@')||!address.value.trim()){checkoutMessage.textContent='Complete all required fields.';checkoutMessage.className='error';return}checkoutMessage.textContent='Order confirmed. Thank you!';checkoutMessage.className='success'}
+</script>
+</body>
+</html>
